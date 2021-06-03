@@ -1,3 +1,5 @@
+//it is general widgets,which we can use in 2 or more screens
+
 import 'package:flutter/material.dart';
 
 class ImageBanner extends StatelessWidget {
@@ -9,7 +11,7 @@ class ImageBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints.expand(
-        height: 200,
+        height: 220,
       ),
       decoration: BoxDecoration(color: Colors.grey),
       child: Image.asset(
