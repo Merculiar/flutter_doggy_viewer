@@ -3,6 +3,7 @@ import 'package:flutter_doggy_viewer/app.dart';
 //import '../../app.dart';
 import '../../models/dog.dart';
 import '../../widgets/image_banner.dart';
+import 'tile_overlay.dart';
 
 class Dogs extends StatelessWidget {
   @override
@@ -14,8 +15,7 @@ class Dogs extends StatelessWidget {
         ),
         body: ListView.builder(
           itemCount: dogs.length,
-          itemBuilder: (context, index) =>
-              _itemBuilder(context, dogs[index]),
+          itemBuilder: (context, index) => _itemBuilder(context, dogs[index]),
         ));
   }
 
@@ -25,7 +25,16 @@ class Dogs extends StatelessWidget {
 
   _itemBuilder(BuildContext context, Dog dog) {
     return GestureDetector(
-        onTap: () => _onDogTap(context, dog.id),
-        child: Container(child: ImageBanner(dog.imagePath)));
+      onTap: () => _onDogTap(context, dog.id),
+      child: Container(
+        height: 245.0,
+        child: Stack(
+          children: [
+            ImageBanner(imagePath: dog.imagePath, height : 245.0),
+            TileOverlay(dog),
+          ],
+        ),
+      ),
+    );
   }
 }

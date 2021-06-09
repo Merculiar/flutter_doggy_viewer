@@ -12,14 +12,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: _routes(),
-      theme: ThemeData(
-          appBarTheme:
-              AppBarTheme(textTheme: TextTheme(headline6: AppBarTextStyle)),
-          textTheme: TextTheme(
-            headline6: TitleTextStyle,
-            bodyText2: Body1TextStyle,
-          )),
+      theme: _theme(),
     );
   }
 
@@ -39,5 +34,17 @@ class App extends StatelessWidget {
       }
       return MaterialPageRoute(builder: (BuildContext context) => screen);
     };
+  }
+
+  ThemeData _theme() {
+    return ThemeData(
+        appBarTheme:
+            AppBarTheme(textTheme: TextTheme(headline6: AppBarTextStyle)),
+        textTheme: TextTheme(
+          headline6: TitleTextStyle,
+          subtitle2: SubTitleTextStyle,
+          caption: CaptionTextStyle,
+          bodyText2: Body1TextStyle,
+        ));
   }
 }
